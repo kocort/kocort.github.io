@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kocort — Desktop AI Agent Assistant</title>
+    <meta name="description"
+        content="Kocort is a desktop AI Agent assistant with dual-brain architecture, zero-CLI, single-binary deployment, and a runtime-centered execution pipeline." />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="assets/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.svg" alt="Kocort" width="32" height="32" />
+                <span>Kocort</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features" data-zh="核心特性" data-en="Features">核心特性</a>
+                <a href="#architecture" data-zh="架构" data-en="Architecture">架构</a>
+                <a href="#security" data-zh="安全" data-en="Security">安全</a>
+                <a href="#comparison" data-zh="对比" data-en="Compare">对比</a>
+                <a href="#docs" data-zh="文档" data-en="Docs">文档</a>
+                <button class="lang-toggle" id="langToggle" title="Switch Language">EN</button>
+                <a href="https://github.com/kocort/kocort" class="btn btn-sm" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="nav-right-mobile">
+                <button class="lang-toggle" id="langToggleMobile" title="Switch Language">EN</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge"><i data-lucide="brain"></i> <span data-zh="首创云端大脑推理+本地小脑审核双脑架构"
+                    data-en="Pioneering Cloud Brain + Local Cerebellum Dual-Brain Architecture">首创云端大脑推理+本地小脑审核双脑架构</span>
+            </div>
+            <h1>
+                <span data-zh="桌面级 AI Agent" data-en="Desktop AI Agent">桌面级 AI Agent</span><br />
+                <span class="gradient-text" data-zh="零门槛，全掌控" data-en="Zero Barrier, Full Control">零门槛，全掌控</span>
+            </h1>
+            <p class="hero-desc"
+                data-zh="Kocort 是一个开箱即用的桌面 AI 助手——双脑安全架构、零命令行图形界面、支持纯本地运行。&lt;br/&gt;让每个人都拥有安全可控的个人 AI 助理。"
+                data-en="Kocort is a ready-to-use desktop AI assistant — dual-brain security, zero-CLI GUI, fully local execution.&lt;br/&gt;A safe, controllable personal AI assistant for everyone.">
+                Kocort 是一个开箱即用的桌面 AI 助手——双脑安全架构、零命令行图形界面、支持纯本地运行。<br />
+                让每个人都拥有安全可控的个人 AI 助理。
+            </p>
+            <div class="hero-actions">
+                <a href="#quickstart" class="btn btn-primary btn-lg" data-zh="快速开始" data-en="Get Started">快速开始</a>
+                <a href="#features" class="btn btn-outline btn-lg" data-zh="了解更多" data-en="Learn More">了解更多</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">46k+</span>
+                    <span class="stat-label" data-zh="行 Go 代码" data-en="Lines of Go">行 Go 代码</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">7</span>
+                    <span class="stat-label" data-zh="安全防线" data-en="Security Layers">安全防线</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">8+</span>
+                    <span class="stat-label" data-zh="渠道集成" data-en="Channels">渠道集成</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">30+</span>
+                    <span class="stat-label" data-zh="内置工具" data-en="Built-in Tools">内置工具</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="核心特性" data-en="Core Features">核心特性</h2>
+                <p data-zh="下载即用的完整 AI 助手，拥有完整的 Agent 执行内核。"
+                    data-en="A complete AI assistant you can use right away, with a full Agent execution kernel.">
+                    下载即用的完整 AI 助手，拥有完整的 Agent 执行内核。</p>
+            </div>
+
+            <!-- Dual Brain Feature (hero card) -->
+            <div class="feature-hero-card">
+                <div class="feature-hero-visual">
+                    <div class="brain-diagram">
+                        <div class="brain-side brain-left">
+                            <div class="brain-icon"><i data-lucide="brain"></i></div>
+                            <h4 data-zh="小脑 · Cerebellum" data-en="Cerebellum · Local">小脑 · Cerebellum</h4>
+                            <p data-zh="本地 1.7B 量化模型&lt;br/&gt;完全离线运行"
+                                data-en="Local 1.7B quantized model&lt;br/&gt;Fully offline">本地 1.7B
+                                量化模型<br />完全离线运行</p>
+                            <ul>
+                                <li data-zh="语义安全审查" data-en="Semantic security review">语义安全审查</li>
+                                <li data-zh="意图一致性检测" data-en="Intent consistency check">意图一致性检测</li>
+                                <li data-zh="数据外泄防护" data-en="Data exfiltration guard">数据外泄防护</li>
+                                <li data-zh="注入攻击拦截" data-en="Injection attack blocking">注入攻击拦截</li>
+                            </ul>
+                        </div>
+                        <div class="brain-bridge">
+                            <div class="bridge-line"></div>
+                            <div class="bridge-label" data-zh="协同" data-en="Sync">协同</div>
+                            <div class="bridge-line"></div>
+                        </div>
+                        <div class="brain-side brain-right">
+                            <div class="brain-icon"><i data-lucide="cloud"></i></div>
+                            <h4 data-zh="大脑 · Brain" data-en="Brain · Cloud/Local">大脑 · Brain</h4>
+                            <p data-zh="云端/本地 LLM&lt;br/&gt;强力推理决策"
+                                data-en="Cloud/Local LLM&lt;br/&gt;Powerful reasoning">云端/本地 LLM<br />强力推理决策</p>
+                            <ul>
+                                <li>OpenAI / Anthropic</li>
+                                <li data-zh="本地 GGUF 模型" data-en="Local GGUF models">本地 GGUF 模型</li>
+                                <li data-zh="流式 SSE 响应" data-en="Streaming SSE">流式 SSE 响应</li>
+                                <li data-zh="多渠道消息集成" data-en="Multi-channel integration">多渠道消息集成</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-hero-text">
+                    <span class="tag" data-zh="首创" data-en="Pioneering">首创</span>
+                    <h3 data-zh="双脑架构" data-en="Dual-Brain Architecture">双脑架构</h3>
+                    <p data-zh="每一条 AI 工具调用都经过本地小脑的语义安全审查。敏感信息永不出设备，审查结果分为 &lt;code&gt;approve&lt;/code&gt; / &lt;code&gt;flag&lt;/code&gt; / &lt;code&gt;reject&lt;/code&gt; 三级，附带风险等级和审查原因。智能跳过低风险只读操作，不影响性能。"
+                        data-en="Every AI tool call is semantically reviewed by the local cerebellum. Sensitive data never leaves the device. Review results: &lt;code&gt;approve&lt;/code&gt; / &lt;code&gt;flag&lt;/code&gt; / &lt;code&gt;reject&lt;/code&gt;, with risk level and reasoning. Low-risk reads are auto-skipped for performance.">
+                        每一条 AI 工具调用都经过本地小脑的语义安全审查。敏感信息永不出设备，审查结果分为
+                        <code>approve</code> / <code>flag</code> / <code>reject</code> 三级，
+                        附带风险等级和审查原因。智能跳过低风险只读操作，不影响性能。
+                    </p>
+                    <div class="flow-diagram">
+                        <span class="flow-step" data-zh="用户请求" data-en="Request">用户请求</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step" data-zh="大脑推理" data-en="Brain">大脑推理</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step accent">tool_call</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step highlight"><i data-lucide="brain"></i> <span data-zh="小脑审查"
+                                data-en="Cerebellum">小脑审查</span></span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step" data-zh="执行" data-en="Execute">执行</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="monitor"></i></div>
+                    <h3 data-zh="零命令行" data-en="Zero CLI">零命令行</h3>
+                    <p data-zh="全部操作通过图形界面完成。内嵌 Next.js Web 前端，以单个可执行文件分发，开箱即用。"
+                        data-en="Everything through a GUI. Embedded Next.js web frontend, distributed as a single binary, ready out of the box.">
+                        全部操作通过图形界面完成。内嵌 Next.js Web 前端，以单个可执行文件分发，开箱即用。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="home"></i></div>
+                    <h3 data-zh="纯本地运行" data-en="Fully Local">纯本地运行</h3>
+                    <p data-zh="内置 llama.cpp 推理引擎，支持 GGUF 格式模型。无需任何云端 API，完全离线使用。"
+                        data-en="Built-in llama.cpp inference engine with GGUF model support. No cloud API needed, fully offline.">
+                        内置 llama.cpp 推理引擎，支持 GGUF 格式模型。无需任何云端 API，完全离线使用。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="radio-tower"></i></div>
+                    <h3 data-zh="多渠道集成" data-en="Multi-Channel">多渠道集成</h3>
+                    <p data-zh="飞书 · Telegram · Discord · Slack · WhatsApp · Zalo · Webhook — 开箱即用的消息桥。"
+                        data-en="Feishu · Telegram · Discord · Slack · WhatsApp · Zalo · Webhook — message bridges out of the box.">
+                        飞书 · Telegram · Discord · Slack · WhatsApp · Zalo · Webhook — 开箱即用的消息桥。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="wrench"></i></div>
+                    <h3 data-zh="工具编排" data-en="Tool Orchestration">工具编排</h3>
+                    <p data-zh="30+ 内置工具，涵盖文件操作、命令执行、浏览器自动化、记忆系统、会话管理、子代理编排等。完整的策略管控体系。"
+                        data-en="30+ built-in tools: file I/O, command execution, browser automation, memory, session management, sub-agents, and more. Full policy control.">
+                        30+ 内置工具，涵盖文件操作、命令执行、浏览器自动化、记忆系统、会话管理、子代理编排等。完整的策略管控体系。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="refresh-cw"></i></div>
+                    <h3 data-zh="管线式引擎" data-en="Pipeline Engine">管线式引擎</h3>
+                    <p data-zh="6 阶段可测试执行管线：validate → resolve → gateQueue → loadContext → buildRunContext → execute。"
+                        data-en="6-stage testable pipeline: validate → resolve → gateQueue → loadContext → buildRunContext → execute.">
+                        6 阶段可测试执行管线：validate → resolve → gateQueue → loadContext → buildRunContext → execute。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="globe"></i></div>
+                    <h3 data-zh="全平台支持" data-en="Cross-Platform">全平台支持</h3>
+                    <p data-zh="原生支持 Windows / macOS / Linux，一套代码多平台编译分发，桌面体验完全一致。"
+                        data-en="Native support for Windows / macOS / Linux. One codebase, multi-platform builds, consistent desktop experience.">
+                        原生支持 Windows / macOS / Linux，一套代码多平台编译分发，桌面体验完全一致。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="layout-dashboard"></i></div>
+                    <h3 data-zh="图形化技能/任务管理" data-en="Visual Skill & Task Manager">图形化技能/任务管理</h3>
+                    <p data-zh="技能与定时任务的可视化管理面板——安装、配置、启停、调度全程图形操作，告别手动编辑配置文件。"
+                        data-en="Visual management panel for skills and scheduled tasks — install, configure, start/stop, and schedule all through GUI. No manual config editing.">
+                        技能与定时任务的可视化管理面板——安装、配置、启停、调度全程图形操作，告别手动编辑配置文件。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="section section-alt" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="架构概览" data-en="Architecture Overview">架构概览</h2>
+                <p data-zh="以 Runtime 为中枢的分层设计与单二进制交付" data-en="Runtime-centered layering with single-binary delivery">以
+                    Runtime 为中枢的分层设计与单二进制交付
+                </p>
+            </div>
+            <div class="arch-wrapper">
+                <div class="arch-diagram">
+                    <div class="arch-layer arch-layer-1">
+                        <div class="arch-layer-label" data-zh="入口层" data-en="Entry">入口层</div>
+                        <div class="arch-block">cmd/kocort/main.go</div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer arch-layer-2">
+                        <div class="arch-layer-label" data-zh="API 层" data-en="API">API 层</div>
+                        <div class="arch-block">api/ <span class="arch-tech">(Gin)</span></div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer arch-layer-3">
+                        <div class="arch-layer-label" data-zh="编排层" data-en="Orchestration">编排层</div>
+                        <div class="arch-block arch-block-primary">runtime/ <span class="arch-tech" data-zh="系统中枢"
+                                data-en="Core Hub">系统中枢</span></div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer arch-layer-4">
+                        <div class="arch-layer-label" data-zh="领域层" data-en="Domain">领域层</div>
+                        <div class="arch-domain-grid">
+                            <span class="arch-domain">core</span>
+                            <span class="arch-domain">config</span>
+                            <span class="arch-domain">backend</span>
+                            <span class="arch-domain">channel</span>
+                            <span class="arch-domain">cerebellum</span>
+                            <span class="arch-domain">localmodel</span>
+                            <span class="arch-domain">tool</span>
+                            <span class="arch-domain">session</span>
+                            <span class="arch-domain">task</span>
+                            <span class="arch-domain">delivery</span>
+                            <span class="arch-domain">heartbeat</span>
+                            <span class="arch-domain">skill</span>
+                            <span class="arch-domain">sandbox</span>
+                            <span class="arch-domain">memory</span>
+                            <span class="arch-domain">event</span>
+                            <span class="arch-domain">acp</span>
+                            <span class="arch-domain">infra</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-info">
+                    <h3 data-zh="设计原则" data-en="Design Principles">设计原则</h3>
+                    <div class="arch-principle">
+                        <strong data-zh="零依赖核心" data-en="Zero-Dependency Core">零依赖核心</strong>
+                        <p data-zh="&lt;code&gt;internal/core&lt;/code&gt; 只依赖标准库，是整个系统的类型基石。"
+                            data-en="&lt;code&gt;internal/core&lt;/code&gt; depends only on stdlib — the type foundation of the entire system.">
+                            <code>internal/core</code> 只依赖标准库，是整个系统的类型基石。
+                        </p>
+                    </div>
+                    <div class="arch-principle">
+                        <strong data-zh="领域隔离" data-en="Domain Isolation">领域隔离</strong>
+                        <p data-zh="domain 包之间不互相依赖，全部通过 &lt;code&gt;core&lt;/code&gt; 共享类型通信。"
+                            data-en="Domain packages never depend on each other, communicating only via &lt;code&gt;core&lt;/code&gt; shared types.">
+                            domain 包之间不互相依赖，全部通过 <code>core</code> 共享类型通信。</p>
+                    </div>
+                    <div class="arch-principle">
+                        <strong data-zh="Runtime 中枢" data-en="Runtime as Hub">Runtime 中枢</strong>
+                        <p data-zh="&lt;code&gt;runtime.Runtime&lt;/code&gt; 聚合配置、会话、任务、投递、渠道、工具和本地模型能力，是 API 与执行主链路共享的系统门面。"
+                            data-en="&lt;code&gt;runtime.Runtime&lt;/code&gt; aggregates config, sessions, tasks, delivery, channels, tools, and local model services as the shared system facade for API and execution paths.">
+                            <code>runtime.Runtime</code> 聚合配置、会话、任务、投递、渠道、工具和本地模型能力，是 API 与执行主链路共享的系统门面。
+                        </p>
+                    </div>
+                    <div class="arch-principle">
+                        <strong data-zh="统一执行管线" data-en="Unified Execution Pipeline">统一执行管线</strong>
+                        <p data-zh="WebChat、外部渠道、任务、心跳与子代理最终都复用同一条 6 阶段执行管线，而不是各自维护独立执行器。"
+                            data-en="WebChat, external channels, tasks, heartbeats, and sub-agents all reuse the same 6-stage execution pipeline instead of separate executors.">
+                            WebChat、外部渠道、任务、心跳与子代理最终都复用同一条 6 阶段执行管线，而不是各自维护独立执行器。</p>
+                    </div>
+                    <div class="arch-principle">
+                        <strong data-zh="单二进制交付" data-en="Single-Binary Delivery">单二进制交付</strong>
+                        <p data-zh="前端构建产物会同步到 &lt;code&gt;api/static/dist&lt;/code&gt; 并被 Go embed 打包，最终以一个主程序同时提供页面与 API。"
+                            data-en="Frontend build artifacts are synced into &lt;code&gt;api/static/dist&lt;/code&gt; and embedded into the Go binary, so one executable serves both UI and API.">
+                            前端构建产物会同步到 <code>api/static/dist</code> 并被 Go embed 打包，最终以一个主程序同时提供页面与 API。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section" id="security">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="多层安全防线" data-en="Multi-Layer Security">多层安全防线</h2>
+                <p data-zh="纵深防御，每一层都是一道屏障" data-en="Defense in depth — every layer is a barrier">纵深防御，每一层都是一道屏障</p>
+            </div>
+            <div class="security-layers">
+                <div class="security-layer" style="--i:0">
+                    <div class="security-level">L1</div>
+                    <div class="security-content">
+                        <h4 data-zh="工具策略" data-en="Tool Policy">工具策略</h4>
+                        <p data-zh="allow / deny / profile / group，子代理深度限制"
+                            data-en="allow / deny / profile / group, subagent depth limits">
+                            allow / deny / profile / group，子代理深度限制</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:1">
+                    <div class="security-level">L2</div>
+                    <div class="security-content">
+                        <h4 data-zh="提权门控" data-en="Elevated Gate">提权门控</h4>
+                        <p data-zh="高危操作分级拦截（low → critical），需用户确认"
+                            data-en="Tiered interception for high-risk ops (low → critical), requires user confirmation">
+                            高危操作分级拦截（low → critical），需用户确认</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:2">
+                    <div class="security-level">L3</div>
+                    <div class="security-content">
+                        <h4 data-zh="沙箱隔离" data-en="Sandbox Isolation">沙箱隔离</h4>
+                        <p data-zh="文件操作限制在授权目录，系统关键路径只读"
+                            data-en="File operations restricted to authorized directories, system-critical paths read-only">
+                            文件操作限制在授权目录，系统关键路径只读</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:3">
+                    <div class="security-level">L4</div>
+                    <div class="security-content">
+                        <h4 data-zh="工具审批" data-en="Tool Approval">工具审批</h4>
+                        <p data-zh="敏感工具需通过动态审批流程" data-en="Sensitive tools require dynamic approval flow">
+                            敏感工具需通过动态审批流程</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:4">
+                    <div class="security-level">L5</div>
+                    <div class="security-content">
+                        <h4 data-zh="循环检测" data-en="Loop Detection">循环检测</h4>
+                        <p data-zh="重复 / 乒乓调用自动熔断，全局熔断器保护"
+                            data-en="Auto circuit-break on repetitive / ping-pong calls, global circuit breaker">
+                            重复 / 乒乓调用自动熔断，全局熔断器保护</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:5">
+                    <div class="security-level security-level-highlight">L6</div>
+                    <div class="security-content">
+                        <h4><i data-lucide="brain"></i> <span data-zh="小脑语义审查"
+                                data-en="Cerebellum Semantic Review">小脑语义审查</span></h4>
+                        <p data-zh="本地模型对 tool_call 做意图一致性、注入攻击、数据外泄等语义分析"
+                            data-en="Local model performs intent consistency, injection attack, data exfiltration analysis on tool_calls">
+                            本地模型对 tool_call 做意图一致性、注入攻击、数据外泄等语义分析</p>
+                    </div>
+                </div>
+                <div class="security-layer" style="--i:6">
+                    <div class="security-level">L7</div>
+                    <div class="security-content">
+                        <h4 data-zh="会话隔离" data-en="Session Isolation">会话隔离</h4>
+                        <p data-zh="会话间访问控制，4 级可见性策略（self / tree / agent / all）"
+                            data-en="Inter-session access control, 4-level visibility policies (self / tree / agent / all)">
+                            会话间访问控制，4 级可见性策略（self / tree / agent / all）</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section section-alt" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="与 OpenClaw 对比" data-en="Kocort vs OpenClaw">与 OpenClaw 对比</h2>
+                <p data-zh="在核心理念上致敬 OpenClaw，在产品形态上差异化进化"
+                    data-en="Inspired by OpenClaw's vision, differentiated evolution in product form">在核心理念上致敬
+                    OpenClaw，在产品形态上差异化进化</p>
+            </div>
+            <div class="comparison-table-wrap">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-zh="特性" data-en="Feature">特性</th>
+                            <th>OpenClaw</th>
+                            <th class="highlight-col">Kocort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-zh="交互方式" data-en="Interface">交互方式</td>
+                            <td data-zh="CLI 命令行" data-en="CLI">CLI 命令行</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="图形界面（零命令行）" data-en="GUI (zero CLI)">图形界面（零命令行）</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-zh="安全模型" data-en="Security">安全模型</td>
+                            <td data-zh="基础规则" data-en="Basic rules">基础规则</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="双脑架构（多层防御 + 语义审查）"
+                                    data-en="Dual-brain (multi-layer defense + semantic review)">双脑架构（多层防御 +
+                                    语义审查）</span></td>
+                        </tr>
+                        <tr>
+                            <td data-zh="本地模型" data-en="Local Model">本地模型</td>
+                            <td data-zh="不支持" data-en="No">不支持</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="内置 llama.cpp 推理" data-en="Built-in llama.cpp">内置
+                                    llama.cpp 推理</span></td>
+                        </tr>
+                        <tr>
+                            <td data-zh="部署方式" data-en="Deployment">部署方式</td>
+                            <td data-zh="CLI 工具安装" data-en="CLI install">CLI 工具安装</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="单文件 + Web 界面" data-en="Single binary + Web UI">单文件
+                                    + Web 界面</span></td>
+                        </tr>
+                        <tr>
+                            <td data-zh="离线运行" data-en="Offline">离线运行</td>
+                            <td data-zh="不支持" data-en="No">不支持</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="完全支持" data-en="Fully supported">完全支持</span></td>
+                        </tr>
+                        <tr>
+                            <td data-zh="渠道集成" data-en="Channels">渠道集成</td>
+                            <td data-zh="终端" data-en="Terminal">终端</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="飞书 / Telegram / Discord / Slack / …"
+                                    data-en="Feishu / Telegram / Discord / Slack / …">飞书 / Telegram / Discord / Slack /
+                                    …</span></td>
+                        </tr>
+
+                        <tr>
+                            <td data-zh="全平台支持" data-en="Cross-Platform">全平台支持</td>
+                            <td data-zh="macOS / Linux" data-en="macOS / Linux">macOS / Linux</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="Windows / macOS / Linux 全平台" data-en="Windows / macOS / Linux">Windows /
+                                    macOS / Linux 全平台</span></td>
+                        </tr>
+                        <tr>
+                            <td data-zh="技能/任务管理" data-en="Skill & Task Mgmt">技能/任务管理</td>
+                            <td data-zh="CLI 手动配置" data-en="CLI manual config">CLI 手动配置</td>
+                            <td class="highlight-col"><i data-lucide="circle-check" class="table-check"></i> <span
+                                    data-zh="图形化管理面板" data-en="Visual management panel">图形化管理面板</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="section" id="quickstart">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="快速开始" data-en="Quick Start">快速开始</h2>
+                <p data-zh="三步启动你的个人 AI Agent" data-en="Get your personal AI Agent running in 3 steps">三步启动你的个人 AI Agent
+                </p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h3 data-zh="下载" data-en="Download">下载</h3>
+                        <p class="step-desc" data-zh="从 GitHub Releases 页面下载适合你操作系统的预编译单文件："
+                            data-en="Download the pre-built single binary for your OS from GitHub Releases:">
+                            从 GitHub Releases 页面下载适合你操作系统的预编译单文件：
+                        </p>
+                        <div class="download-actions">
+                            <a href="https://github.com/kocort/kocort/releases" class="btn btn-primary" target="_blank"
+                                rel="noopener">
+                                <span><i data-lucide="package"></i> <span data-zh="前往 GitHub Releases 下载"
+                                        data-en="Go to GitHub Releases">前往 GitHub Releases 下载</span></span>
+                            </a>
+                        </div>
+                        <div class="platform-tags">
+                            <span class="platform-tag">Windows x64</span>
+                            <span class="platform-tag">macOS ARM64</span>
+                            <span class="platform-tag">macOS x64</span>
+                            <span class="platform-tag">Linux x64</span>
+                            <span class="platform-tag">Linux ARM64</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h3 data-zh="运行" data-en="Run">运行</h3>
+                        <p class="step-desc" data-zh="双击运行或在终端启动，服务会提供本地 Web 界面："
+                            data-en="Double-click to run or launch from terminal. The app serves a local web UI:">
+                            双击运行或在终端启动，服务会提供本地 Web 界面：
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)" data-zh="复制"
+                                    data-en="Copy">复制</button>
+                            </div>
+                            <pre><code>./kocort</code></pre>
+                        </div>
+                        <p class="step-note" data-zh="启动后访问本地页面即可使用 WebChat 与管理面板；如需云端模型，再到设置中补充 provider 配置。"
+                            data-en="After launch, open the local page to use WebChat and the admin UI; add provider settings later if you want cloud models.">
+                            启动后访问本地页面即可使用 WebChat 与管理面板；如需云端模型，再到设置中补充 provider 配置。
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h3 data-zh="配置模型" data-en="Configure Model">配置模型</h3>
+                        <p class="step-desc" data-zh="在图形界面中选择你的 AI 模型——本地运行或连接云端："
+                            data-en="Choose your AI model in the GUI — run locally or connect to the cloud:">
+                            在图形界面中选择你的 AI 模型——本地运行或连接云端：
+                        </p>
+                        <div class="model-options">
+                            <div class="model-option">
+                                <div class="model-option-icon"><i data-lucide="home"></i></div>
+                                <div class="model-option-content">
+                                    <h4 data-zh="本地模型" data-en="Local Model">本地模型</h4>
+                                    <p data-zh="在界面中一键下载并启用本地 GGUF 模型，完全离线运行，数据不出设备。"
+                                        data-en="One-click download and enable local GGUF models in the UI. Fully offline, data stays on device.">
+                                        在界面中一键下载并启用本地 GGUF 模型，完全离线运行，数据不出设备。</p>
+                                </div>
+                            </div>
+                            <div class="model-option-divider">
+                                <span data-zh="或" data-en="or">或</span>
+                            </div>
+                            <div class="model-option">
+                                <div class="model-option-icon"><i data-lucide="cloud"></i></div>
+                                <div class="model-option-content">
+                                    <h4 data-zh="云端模型" data-en="Cloud Model">云端模型</h4>
+                                    <p data-zh="在设置中填入 API Key（OpenAI、Anthropic 等），即可连接云端大模型进行推理。"
+                                        data-en="Enter your API Key (OpenAI, Anthropic, etc.) in settings to connect to cloud LLMs for inference.">
+                                        在设置中填入 API Key（OpenAI、Anthropic 等），即可连接云端大模型进行推理。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Docs -->
+    <section class="section section-alt" id="docs">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-zh="文档" data-en="Documentation">文档</h2>
+                <p data-zh="深入了解 Kocort 的每个细节" data-en="Dive deep into every detail of Kocort">深入了解 Kocort 的每个细节</p>
+            </div>
+            <div class="docs-grid">
+                <a href="https://github.com/kocort/kocort/blob/main/docs/README.md" class="doc-card" target="_blank"
+                    rel="noopener">
+                    <div class="doc-icon"><i data-lucide="compass"></i></div>
+                    <h3 data-zh="文档总览" data-en="Docs Overview">文档总览</h3>
+                    <p data-zh="文档入口、阅读顺序与仓库核心目录导航"
+                        data-en="Docs entry point, reading order, and repository navigation">文档入口、阅读顺序与仓库核心目录导航</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/ARCHITECTURE.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="layers"></i></div>
+                    <h3 data-zh="系统架构" data-en="Architecture">系统架构</h3>
+                    <p data-zh="启动链路、分层结构、核心子系统与依赖方向"
+                        data-en="Boot flow, layered structure, subsystems, and dependency directions">
+                        启动链路、分层结构、核心子系统与依赖方向</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/RUNTIME_PIPELINE.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="refresh-cw"></i></div>
+                    <h3 data-zh="运行时管线" data-en="Runtime Pipeline">运行时管线</h3>
+                    <p data-zh="RuntimeBuilder、6 阶段执行流程、工具链路与后台服务"
+                        data-en="RuntimeBuilder, 6-stage execution flow, tool path, and background services">
+                        RuntimeBuilder、6 阶段执行流程、工具链路与后台服务</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/MODULES.md" class="doc-card" target="_blank"
+                    rel="noopener">
+                    <div class="doc-icon"><i data-lucide="map"></i></div>
+                    <h3 data-zh="模块地图" data-en="Module Map">模块地图</h3>
+                    <p data-zh="api、runtime、internal、web 等目录的职责边界与阅读入口"
+                        data-en="Responsibilities and reading entry points across api, runtime, internal, and web.">
+                        api、runtime、internal、web 等目录的职责边界与阅读入口</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/CONFIGURATION.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="settings"></i></div>
+                    <h3 data-zh="配置说明" data-en="Configuration">配置说明</h3>
+                    <p data-zh="配置结构、加载合并规则、热更新机制与 local-config 用法"
+                        data-en="Config structure, merge/load rules, hot reload behavior, and local-config usage.">
+                        配置结构、加载合并规则、热更新机制与 local-config 用法</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/API_REFERENCE.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="globe"></i></div>
+                    <h3 data-zh="HTTP API" data-en="HTTP API">HTTP API</h3>
+                    <p data-zh="workspace、engine、system、rpc 与 channels webhook 的接口地图"
+                        data-en="Route map for workspace, engine, system, rpc, and channels webhook surfaces.">
+                        workspace、engine、system、rpc 与 channels webhook 的接口地图</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/CLIENTS_AND_DEPLOYMENT.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="monitor-smartphone"></i></div>
+                    <h3 data-zh="前端与发布" data-en="Clients & Deployment">前端与发布</h3>
+                    <p data-zh="Web 前端、桌面壳、嵌入式静态资源和构建发布路径"
+                        data-en="Web UI, desktop shell, embedded assets, and build/deployment flow.">Web
+                        前端、桌面壳、嵌入式静态资源和构建发布路径</p>
+                </a>
+                <a href="https://github.com/kocort/kocort/blob/main/docs/DEVELOPMENT.md" class="doc-card"
+                    target="_blank" rel="noopener">
+                    <div class="doc-icon"><i data-lucide="code"></i></div>
+                    <h3 data-zh="开发指南" data-en="Development">开发指南</h3>
+                    <p data-zh="本地启动、构建测试、代码阅读顺序与主要扩展边界"
+                        data-en="Local startup, build/test flow, code reading order, and extension boundaries.">
+                        本地启动、构建测试、代码阅读顺序与主要扩展边界</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-zh="立即拥有你的 AI 助手" data-en="Get Your AI Assistant Now">立即拥有你的 AI 助手</h2>
+                <p data-zh="双脑架构 · 零命令行 · 单文件部署 · 纯本地运行" data-en="Dual-Brain · Zero CLI · Single Binary · Fully Local">
+                    双脑架构 · 零命令行 · 单文件部署 · 纯本地运行</p>
+                <div class="cta-actions">
+                    <a href="#quickstart" class="btn btn-primary btn-lg" data-zh="快速开始" data-en="Get Started">快速开始</a>
+                    <a href="https://github.com/kocort/kocort" class="btn btn-outline-light btn-lg" target="_blank"
+                        rel="noopener" data-zh="查看源码" data-en="View Source">
+                        查看源码
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/logo.svg" alt="Kocort" width="28" height="28" />
+                <span>Kocort</span>
+            </div>
+            <p class="footer-desc" data-zh="桌面级 AI Agent 助手 — 双脑架构 · 零命令行 · 单文件部署"
+                data-en="Desktop AI Agent Assistant — Dual-Brain · Zero CLI · Single Binary">
+                桌面级 AI Agent 助手 — 双脑架构 · 零命令行 · 单文件部署
+            </p>
+            <div class="footer-links">
+                <a href="https://github.com/kocort/kocort" target="_blank" rel="noopener">GitHub</a>
+                <span class="footer-sep">·</span>
+                <a href="#docs" data-zh="文档" data-en="Docs">文档</a>
+                <span class="footer-sep">·</span>
+                <a href="#features" data-zh="特性" data-en="Features">特性</a>
+            </div>
+            <p class="footer-copy">Built with <i data-lucide="brain"></i> dual-brain architecture</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
