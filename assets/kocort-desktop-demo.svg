@@ -1,0 +1,74 @@
+<svg width="1100" height="680" viewBox="0 0 1100 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="70" x2="970" y2="610" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151827"/>
+      <stop offset="1" stop-color="#0B0E18"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="86" y1="54" x2="1016" y2="626" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D2335"/>
+      <stop offset="1" stop-color="#121625"/>
+    </linearGradient>
+    <linearGradient id="icon" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7C86FF"/>
+      <stop offset="1" stop-color="#5A5FE8"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1100" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="46" width="960" height="588" rx="28" fill="url(#bg)"/>
+    <rect x="86" y="62" width="928" height="556" rx="24" fill="url(#wall)" stroke="#2A314C"/>
+  </g>
+
+  <rect x="86" y="62" width="928" height="56" rx="24" fill="#171C2B"/>
+  <circle cx="126" cy="90" r="8" fill="#FF5F57"/>
+  <circle cx="150" cy="90" r="8" fill="#FFBD2E"/>
+  <circle cx="174" cy="90" r="8" fill="#28C840"/>
+  <text x="550" y="96" fill="#AAB1CE" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">Desktop</text>
+
+  <g opacity="0.35">
+    <path d="M140 186C198 138 259 132 341 162C425 193 497 216 585 190C679 162 744 124 866 166" stroke="#39415D" stroke-width="2"/>
+    <path d="M126 450C213 390 313 375 420 401C514 424 622 464 740 438C837 417 900 389 972 333" stroke="#2A314C" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(170 186)">
+    <rect x="0" y="0" width="108" height="108" rx="26" fill="url(#icon)"/>
+    <rect x="18" y="18" width="72" height="72" rx="20" fill="#E9ECFF" fill-opacity="0.18" stroke="#DCE1FF" stroke-opacity="0.34"/>
+    <path d="M54 31C66.2 31 76 40.8 76 53C76 65.2 66.2 75 54 75C41.8 75 32 65.2 32 53C32 40.8 41.8 31 54 31Z" fill="#F6F7FF"/>
+    <path d="M54 38L61.5 51H46.5L54 38Z" fill="#6A72FF"/>
+    <path d="M44 58H64L54 70L44 58Z" fill="#6A72FF"/>
+    <text x="54" y="136" fill="#E5E7F7" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">Kocort</text>
+    <text x="54" y="162" fill="#8D96B8" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Double-click</text>
+  </g>
+
+  <g transform="translate(656 172)">
+    <rect x="0" y="0" width="228" height="292" rx="22" fill="#141A28" stroke="#2E3653"/>
+    <rect x="18" y="18" width="192" height="44" rx="14" fill="#1B2133"/>
+    <text x="38" y="46" fill="#E5E7F7" font-family="Arial, sans-serif" font-size="18" font-weight="700">Kocort</text>
+    <rect x="18" y="82" width="192" height="72" rx="16" fill="#1B2133"/>
+    <rect x="34" y="98" width="124" height="12" rx="6" fill="#6C78FF"/>
+    <rect x="34" y="120" width="148" height="10" rx="5" fill="#4B526F"/>
+    <rect x="34" y="136" width="104" height="10" rx="5" fill="#4B526F"/>
+    <rect x="18" y="172" width="192" height="100" rx="16" fill="#1B2133"/>
+    <rect x="34" y="192" width="156" height="12" rx="6" fill="#48C774"/>
+    <rect x="34" y="214" width="142" height="10" rx="5" fill="#4B526F"/>
+    <rect x="34" y="230" width="118" height="10" rx="5" fill="#4B526F"/>
+    <text x="114" y="320" fill="#8D96B8" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Launch UI</text>
+  </g>
+
+  <g transform="translate(330 278)">
+    <path d="M112 0L135 66L98 67L117 144L0 79L38 74L13 0H112Z" fill="#F3F5FF"/>
+    <path d="M88 17L103 58L75 58L90 113L22 77L54 72L35 17H88Z" fill="#6A72FF" fill-opacity="0.28"/>
+  </g>
+
+  <g opacity="0.9">
+    <circle cx="265" cy="280" r="10" fill="#8FA1FF"/>
+    <circle cx="265" cy="280" r="22" stroke="#8FA1FF" stroke-opacity="0.45" stroke-width="4"/>
+    <circle cx="265" cy="280" r="38" stroke="#8FA1FF" stroke-opacity="0.22" stroke-width="4"/>
+  </g>
+
+  <rect x="132" y="534" width="820" height="46" rx="23" fill="#0F1320" stroke="#232B45"/>
+  <text x="550" y="563" fill="#AEB6D7" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">Extract archive  →  Double-click Kocort  →  Local UI opens automatically</text>
+</svg>

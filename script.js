@@ -41,6 +41,12 @@
 
     function toggleLang() {
         applyLang(currentLang === 'zh' ? 'en' : 'zh');
+        if (downloadState.selectedPlatformId) {
+            updatePrimaryDownload(
+                downloadState.selectedPlatformId,
+                downloadState.selectedPlatformId === downloadState.detectedPlatformId
+            );
+        }
     }
 
     // Bind language toggles
@@ -55,6 +61,175 @@
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
+    }
+
+    // --- Download config and platform detection ---
+    var downloadState = {
+        selectedPlatformId: null,
+        detectedPlatformId: null
+    };
+
+    function getDownloadConfig() {
+        if (!window.KOCORT_DOWNLOADS || !Array.isArray(window.KOCORT_DOWNLOADS.platforms)) {
+            return null;
+        }
+        return window.KOCORT_DOWNLOADS;
+    }
+
+    function getPlatformById(id) {
+        var config = getDownloadConfig();
+        if (!config) return null;
+        return config.platforms.find(function (platform) {
+            return platform.id === id;
+        }) || null;
+    }
+
+    function getPlatformFileHint(platform) {
+        if (!platform) return '';
+        if (platform.assetName.indexOf('.dmg') !== -1) return 'DMG';
+        if (platform.assetName.indexOf('.tar.gz') !== -1) return 'TAR.GZ';
+        if (platform.assetName.indexOf('.zip') !== -1) return 'ZIP';
+        return platform.assetName.split('.').pop().toUpperCase();
+    }
+
+    function getPlatformDownloadUrl(platform) {
+        var config = getDownloadConfig();
+        if (!config || !platform) return '#';
+        var baseMap = config.latestDownloadBaseByLang || {};
+        var base = baseMap[currentLang] || baseMap.zh || baseMap.en || '';
+        return base + platform.assetName;
+    }
+
+    function getReleasesPageUrl() {
+        var config = getDownloadConfig();
+        if (!config) return '#';
+        var pageMap = config.releasesPageByLang || {};
+        return pageMap[currentLang] || pageMap.zh || pageMap.en || '#';
+    }
+
+    function detectOS() {
+        var uaData = navigator.userAgentData;
+        var platform = uaData && uaData.platform ? uaData.platform.toLowerCase() : '';
+        var navPlatform = (navigator.platform || '').toLowerCase();
+        var ua = (navigator.userAgent || '').toLowerCase();
+        var source = platform || navPlatform || ua;
+
+        if (source.indexOf('win') !== -1) return 'windows';
+        if (source.indexOf('mac') !== -1 || source.indexOf('darwin') !== -1) return 'macos';
+        if (source.indexOf('linux') !== -1 || source.indexOf('x11') !== -1) return 'linux';
+        return 'windows';
+    }
+
+    function detectArchFallback() {
+        var ua = (navigator.userAgent || '').toLowerCase();
+        var navPlatform = (navigator.platform || '').toLowerCase();
+        var source = ua + ' ' + navPlatform;
+
+        if (source.indexOf('aarch64') !== -1 || source.indexOf('arm64') !== -1) return 'arm64';
+        if (source.indexOf('arm') !== -1) return 'arm64';
+        return 'amd64';
+    }
+
+    function detectCurrentPlatformIdSync() {
+        var os = detectOS();
+        var arch = detectArchFallback();
+        return os + '-' + arch;
+    }
+
+    function updatePrimaryDownload(platformId, isDetected) {
+        var platform = getPlatformById(platformId);
+        var config = getDownloadConfig();
+        if (!platform || !config) return;
+
+        downloadState.selectedPlatformId = platform.id;
+
+        var title = document.getElementById('downloadPrimaryTitle');
+        var desc = document.getElementById('downloadPrimaryDesc');
+        var label = document.getElementById('downloadDetectedLabel');
+        var primaryBtn = document.getElementById('downloadPrimaryBtn');
+        var primaryBtnText = document.getElementById('downloadPrimaryBtnText');
+        var allBtn = document.getElementById('downloadAllBtn');
+
+        if (title) title.textContent = platform.label;
+        if (desc) {
+            desc.textContent = currentLang === 'zh'
+                ? (isDetected ? '已为当前设备自动匹配对应发行包。' : '已切换到你手动选择的平台发行包。')
+                : (isDetected ? 'Matched automatically for this device.' : 'Switched to the package you selected.');
+        }
+        if (label) {
+            label.textContent = currentLang === 'zh'
+                ? (isDetected ? '自动识别当前平台' : '当前手动选择平台')
+                : (isDetected ? 'Auto-detected platform' : 'Manually selected platform');
+        }
+        if (primaryBtn) primaryBtn.href = getPlatformDownloadUrl(platform);
+        if (primaryBtnText) {
+            primaryBtnText.textContent = currentLang === 'zh'
+                ? ('下载 ' + platform.label)
+                : ('Download ' + platform.label);
+        }
+        if (allBtn) allBtn.href = getReleasesPageUrl();
+
+        document.querySelectorAll('.platform-choice').forEach(function (button) {
+            var active = button.getAttribute('data-platform-id') === platform.id;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+    }
+
+    function renderPlatformPicker() {
+        var config = getDownloadConfig();
+        var picker = document.getElementById('platformPicker');
+        if (!config || !picker) return;
+
+        picker.innerHTML = '';
+
+        config.platforms.forEach(function (platform) {
+            var button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'platform-choice';
+            button.setAttribute('data-platform-id', platform.id);
+            button.setAttribute('aria-pressed', 'false');
+            button.innerHTML = ''
+                + '<span class="platform-choice-label-row">'
+                + '<span class="platform-choice-label">' + platform.label + '</span>'
+                + '<span class="platform-choice-badge">' + getPlatformFileHint(platform) + '</span>'
+                + '</span>'
+                + '<span class="platform-choice-meta">' + platform.assetName + '</span>';
+            button.addEventListener('click', function () {
+                updatePrimaryDownload(platform.id, false);
+            });
+            picker.appendChild(button);
+        });
+    }
+
+    function initializeDownloads() {
+        var config = getDownloadConfig();
+        if (!config) return;
+
+        renderPlatformPicker();
+
+        var detectedId = detectCurrentPlatformIdSync();
+        downloadState.detectedPlatformId = getPlatformById(detectedId)
+            ? detectedId
+            : config.platforms[0].id;
+        updatePrimaryDownload(downloadState.detectedPlatformId, true);
+
+        var uaData = navigator.userAgentData;
+        if (uaData && typeof uaData.getHighEntropyValues === 'function') {
+            uaData.getHighEntropyValues(['architecture']).then(function (values) {
+                var os = detectOS();
+                var arch = values && values.architecture && values.architecture.toLowerCase().indexOf('arm') !== -1
+                    ? 'arm64'
+                    : 'amd64';
+                var refinedId = os + '-' + arch;
+                if (downloadState.selectedPlatformId === downloadState.detectedPlatformId && getPlatformById(refinedId)) {
+                    downloadState.detectedPlatformId = refinedId;
+                    updatePrimaryDownload(refinedId, true);
+                }
+            }).catch(function () {
+                // Ignore and keep the fallback result.
+            });
+        }
     }
 
     // --- Navbar scroll effect ---
@@ -138,6 +313,8 @@
             }, 1500);
         });
     };
+
+    initializeDownloads();
 
     // --- Intersection Observer for animations ---
     if ('IntersectionObserver' in window) {

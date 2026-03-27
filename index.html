@@ -469,23 +469,45 @@
                     <div class="step-num">1</div>
                     <div class="step-content">
                         <h3 data-zh="下载" data-en="Download">下载</h3>
-                        <p class="step-desc" data-zh="从 GitHub Releases 页面下载适合你操作系统的预编译单文件："
-                            data-en="Download the pre-built single binary for your OS from GitHub Releases:">
-                            从 GitHub Releases 页面下载适合你操作系统的预编译单文件：
+                        <p class="step-desc" data-zh="页面会自动匹配你当前设备的平台包；如果需要，也可以直接切换到其他系统与架构下载："
+                            data-en="This page auto-matches the package for your current platform. You can also switch to any other OS and architecture below:">
+                            页面会自动匹配你当前设备的平台包；如果需要，也可以直接切换到其他系统与架构下载：
                         </p>
-                        <div class="download-actions">
-                            <a href="https://github.com/kocort/kocort/releases" class="btn btn-primary" target="_blank"
-                                rel="noopener">
-                                <span><i data-lucide="package"></i> <span data-zh="前往 GitHub Releases 下载"
-                                        data-en="Go to GitHub Releases">前往 GitHub Releases 下载</span></span>
-                            </a>
-                        </div>
-                        <div class="platform-tags">
-                            <span class="platform-tag">Windows x64</span>
-                            <span class="platform-tag">macOS ARM64</span>
-                            <span class="platform-tag">macOS x64</span>
-                            <span class="platform-tag">Linux x64</span>
-                            <span class="platform-tag">Linux ARM64</span>
+                        <div class="download-panel" id="downloadPanel">
+                            <div class="download-primary-card">
+                                <div class="download-primary-copy">
+                                    <span class="download-eyebrow" id="downloadDetectedLabel" data-zh="自动识别当前平台"
+                                        data-en="Auto-detected platform">自动识别当前平台</span>
+                                    <h4 id="downloadPrimaryTitle">Windows AMD64</h4>
+                                    <p id="downloadPrimaryDesc"
+                                        data-zh="推荐下载当前设备对应的发行包。"
+                                        data-en="Recommended package for this device.">
+                                        推荐下载当前设备对应的发行包。
+                                    </p>
+                                </div>
+                                <div class="download-actions">
+                                    <a href="https://github.com/kocort/kocort/releases" class="btn btn-primary"
+                                        id="downloadPrimaryBtn" target="_blank" rel="noopener">
+                                        <span><i data-lucide="download"></i> <span id="downloadPrimaryBtnText"
+                                                data-zh="下载当前平台"
+                                                data-en="Download for this platform">下载当前平台</span></span>
+                                    </a>
+                                    <a href="https://github.com/kocort/kocort/releases" class="btn btn-outline"
+                                        id="downloadAllBtn" target="_blank" rel="noopener"
+                                        data-zh="查看全部 Release"
+                                        data-en="View All Releases">查看全部 Release</a>
+                                </div>
+                            </div>
+                            <div class="platform-picker-wrap">
+                                <div class="platform-picker-head">
+                                    <h5 data-zh="其他平台" data-en="Other Platforms">其他平台</h5>
+                                    <p data-zh="点击直接下载对应平台安装包"
+                                        data-en="Click to download a package for another platform">
+                                        点击直接下载对应平台安装包
+                                    </p>
+                                </div>
+                                <div class="platform-picker" id="platformPicker" aria-label="Platform downloads"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -493,21 +515,18 @@
                     <div class="step-num">2</div>
                     <div class="step-content">
                         <h3 data-zh="运行" data-en="Run">运行</h3>
-                        <p class="step-desc" data-zh="双击运行或在终端启动，服务会提供本地 Web 界面："
-                            data-en="Double-click to run or launch from terminal. The app serves a local web UI:">
-                            双击运行或在终端启动，服务会提供本地 Web 界面：
+                        <p class="step-desc" data-zh="解压下载文件后，在桌面找到 Kocort 图标并双击即可启动："
+                            data-en="After extracting the downloaded archive, find the Kocort icon on your desktop and double-click to launch:">
+                            解压下载文件后，在桌面找到 Kocort 图标并双击即可启动：
                         </p>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span>Terminal</span>
-                                <button class="copy-btn" onclick="copyCode(this)" data-zh="复制"
-                                    data-en="Copy">复制</button>
-                            </div>
-                            <pre><code>./kocort</code></pre>
+                        <div class="desktop-demo">
+                            <img src="assets/kocort-desktop-demo.svg"
+                                alt="Desktop demonstration showing the Kocort icon being double-clicked"
+                                class="desktop-demo-image" />
                         </div>
-                        <p class="step-note" data-zh="启动后访问本地页面即可使用 WebChat 与管理面板；如需云端模型，再到设置中补充 provider 配置。"
-                            data-en="After launch, open the local page to use WebChat and the admin UI; add provider settings later if you want cloud models.">
-                            启动后访问本地页面即可使用 WebChat 与管理面板；如需云端模型，再到设置中补充 provider 配置。
+                        <p class="step-note" data-zh="首次打开会自动打开引导界面，按照引导配置模型与聊天通道即可。"
+                            data-en="On first launch, a guided setup opens automatically. Follow it to configure your model and chat channels.">
+                            首次打开会自动打开引导界面，按照引导配置模型与聊天通道即可。
                         </p>
                     </div>
                 </div>
@@ -663,6 +682,7 @@
         </div>
     </footer>
 
+    <script src="downloads.js"></script>
     <script src="script.js"></script>
 </body>
 
