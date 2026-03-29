@@ -1,11 +1,11 @@
 window.KOCORT_DOWNLOADS = {
     "releasesPageByLang": {
-        "zh": "https://g.cource.com/https://github.com/kocort/kocort/releases/tag/v2026.03.28-beta.1",
-        "en": "https://github.com/kocort/kocort/releases/tag/v2026.03.28-beta.1"
+        "zh": "https://g.cource.com/https://github.com/kocort/kocort/releases/tag/v2026.03.29-beta.1",
+        "en": "https://github.com/kocort/kocort/releases/tag/v2026.03.29-beta.1"
     },
     "latestDownloadBaseByLang": {
-        "zh": "https://g.cource.com/https://github.com/kocort/kocort/releases/download/v2026.03.28-beta.1/",
-        "en": "https://github.com/kocort/kocort/releases/download/v2026.03.28-beta.1/"
+        "zh": "https://g.cource.com/https://github.com/kocort/kocort/releases/download/v2026.03.29-beta.1/",
+        "en": "https://github.com/kocort/kocort/releases/download/v2026.03.29-beta.1/"
     },
     "platforms": [
         {
